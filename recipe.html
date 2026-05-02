@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Recipes | Jenna's Recipedia</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <link rel="stylesheet" href="Recipe.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="./assets/images/logo.png" alt="Jenna's Recipes" width="350" class="rounded" />
+      </a>
+
+      <button
+        class="navbar-toggler text-white"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon navbar-light"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-4">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="recipe.html">Search Recipe</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="wrapper" class="recipe-page">
+
+    <!-- Search Section -->
+    <section class="search-section container py-5">
+      <div class="section-shell">
+        <div class="row g-4">
+
+          <!-- Left: Search -->
+          <div class="col-lg-7">
+            <div class="panel-card h-100">
+              <form id="recipeSearchForm">
+                <p class="eyebrow">Search For Recipe</p>
+                <h1 class="section-title">Find recipes by ingredient</h1>
+
+                <div class="search-box mt-4">
+                  <label for="ingredientInput" class="form-label">Type Ingredient</label>
+                  <div class="d-flex gap-2">
+                    <input
+                      type="text"
+                      id="ingredientInput"
+                      class="form-control"
+                      placeholder="Example: chicken, rice, garlic"
+                    />
+                    <button type="button" class="btn btn-main" id="addIngredientBtn">Add</button>
+                  </div>
+                </div>
+
+                <div class="ingredient-tags mt-3" id="ingredientTags"></div>
+
+                <div class="filters-box mt-4">
+                  <h3 class="filter-title">Filters</h3>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="dietFilter" class="form-label">Diet</label>
+                      <select id="dietFilter" class="form-select">
+                        <option value="">Any</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="gluten free">Gluten Free</option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="cuisineFilter" class="form-label">Cuisine</label>
+                      <input
+                        type="text"
+                        id="cuisineFilter"
+                        class="form-control"
+                        placeholder="Example: Italian"
+                      />
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="prepTimeFilter" class="form-label">Max Prep Time</label>
+                      <input type="range" id="prepTimeFilter" class="form-range" min="10" max="120" />
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="calorieFilter" class="form-label">Max Calories</label>
+                      <input type="range" id="calorieFilter" class="form-range" min="100" max="1200" />
+                    </div>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-main mt-4 px-4">Search Recipes</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Right: Pantry Tracker -->
+          <div class="col-lg-5">
+            <div class="panel-card pantry-panel h-100">
+              <p class="eyebrow">Pantry Tracker</p>
+              <h2 class="section-title-sm">Stored in local storage</h2>
+              <p class="muted-text">Items here should be included in ingredient matching.</p>
+
+              <div class="d-flex gap-2 mt-3">
+                <input
+                  type="text"
+                  id="pantryInput"
+                  class="form-control"
+                  placeholder="Add pantry item"
+                />
+                <button type="button" class="btn btn-main" id="addPantryBtn">Add</button>
+              </div>
+
+              <div id="pantryGrid" class="pantry-grid mt-4"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section container pb-5">
+      <div class="section-shell">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+          <div>
+            <p class="eyebrow mb-1">Ingredients Included</p>
+            <h2 class="section-title-sm mb-0">Recipe Results</h2>
+          </div>
+          <p class="results-meta mb-0" id="resultsCount">No recipes loaded yet</p>
+        </div>
+
+        <div id="recipeGrid" class="recipe-grid"></div>
+
+        <div class="text-center mt-4">
+          <button id="loadMoreBtn" class="btn btn-outline-light load-more-btn d-none">Load More</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Footer -->
+  <footer class="site-footer py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5 class="footer-brand">Jenna's <br>Recipedia</h5>
+          <p class="footer-tagline">Homemade recipes for every table — from Jenna's kitchen to yours.</p>
+        </div>
+
+        <div class="col-md-3">
+          <h6 class="footer-heading">Pages</h6>
+          <hr>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="recipe.html">Recipes</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3">
+          <h6 class="footer-heading">Recipes</h6>
+          <hr>
+          <ul class="list-unstyled">
+            <li><a href="#">Breakfast</a></li>
+            <li><a href="#">Lunch</a></li>
+            <li><a href="#">Dinner</a></li>
+            <li><a href="#">Desserts</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <h6 class="footer-heading">Contact</h6>
+          <hr>
+          <ul class="list-unstyled">
+            <li>jenna@recipes.com</li>
+            <li>(555) 000-0000</li>
+            <li>New York, NY</li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="my-4" />
+      <p class="footer-bottom">&copy; 2026 Jenna's Recipedia. Developed by Team Phoenix.</p>
+    </div>
+  </footer>
+
+  </main>
+
+<!-- Floating Sidebar -->
+<aside class="floating-sidebar">
+  <button id="favoritesBtn" title="Favorites"><i class="fa-regular fa-heart"></i></button>
+  <button id="shoppingBtn" title="Shopping Cart"><i class="fa-solid fa-cart-shopping"></i></button>
+  <button id="plannerBtn" title="Meal Planner"><i class="fa-regular fa-calendar"></i></button>
+</aside>
+
+<div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+<section id="sidePanel" class="side-panel">
+  <div class="side-panel-header">
+    <h3 id="sidePanelTitle">Panel</h3>
+    <button id="closePanelBtn" class="close-panel-btn">&times;</button>
+  </div>
+
+  <div id="sidePanelContent" class="side-panel-content"></div>
+</section>
+
+<!-- Recipe Modal -->
+  <div class="modal fade" id="recipeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content recipe-modal">
+        <div class="modal-header border-0">
+          <div>
+            <h2 class="modal-title" id="modalRecipeTitle">Recipe Title</h2>
+            <span class="modal-badge" id="modalMatchScore">Match Score</span>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body" id="modalRecipeBody">
+          <!-- Recipe details get inserted here by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="recipe.js"></script>
+  <script>
+    const nav = document.querySelector(".custom-navbar");
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 80) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+  </script>
+  <div id="page-load-bar"></div>
+</body>
+</html>

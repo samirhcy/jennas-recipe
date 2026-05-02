@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Jenna's Recipedia</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Lora:ital@1&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./assets/main.css" />
+    <script defer src="https://friconix.com/cdn/friconix.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/main.js" defer></script>
+  </head>
+
+  <body id="home-bg">
+    
+    <main id="wrapper">
+      <div id="scroll-progress"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="./assets/images/logo.png"
+            alt="Jenna's Recipes"
+            class="rounded"
+            style="padding-top: 8px;"
+            width="350"
+            height="auto"
+            
+          />
+          
+        </a>
+        <button
+          class="navbar-toggler text-white"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon navbar-light"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-4">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="recipe.html">Search Recipe</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+  
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <!-- Hero Section -->
+      <header class="full-section header">
+        <div class="container">
+          <div class="row align-items-center g-5">
+            <!-- Left Text -->
+            <div class="col-lg-6">
+              <div class="pe-lg-4 text-center text-lg-start mb-4 animate__animated animate__fadeInUp">
+                <h3 class="mb-2">
+                  Homemade and heartwarming
+                </h3>
+
+                <h1 class="mb-4">Welcome to Jenna's Recipedia</h1>
+
+                <p class="mb-4">
+                  Step into my kitchen. From family-favorite classics to quick weeknight dinners, I've curated a world of flavors designed to make your cooking effortless. Let's find your next great meal.
+                </p>
+
+                <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+                  <a href="recipe.html" class="btn btn-lg px-4 link">
+                    Search Recipes
+                  </a>
+                  <a class="btn btn-lg px-4 modal-trigger" data-target="my-article-modal" style="border: 1px solid var(--color-muted); border-radius: 18px; color: #1e1e1e; background-color: var(--color-accent) ">
+                    Suprise Me!
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right GIF -->
+            <div class="col-lg-6 text-center animate__animated animate__fadeInDown">
+              <img
+                src="./assets/images/download.gif"
+                alt="Delicious recipe"
+                class="img-fluid shadow image"
+              />
+            </div>
+          </div>
+        </div>
+      </header>  
+      
+
+    <section
+        class="text-left full-section purpose"
+      >
+        <div class="container">
+          <div class="mx-auto" style="max-width: 960px;">
+            <h2 class="mb-2">
+              More Than Just Recipes
+            </h2>
+            <hr>
+            <p class="typecadence" data-typecadence-speed="10,20" data-typecadence-mistakes="0" data-typecadence-caret-color="#A0522D" data-typecadence-caret-blink="false" data-typecadence-caret-remain="true">
+              Cooking shouldn't be a chore, and finding the right recipe shouldn't be a treasure hunt. Jenna's Recipedia brings the heart of home cooking together with a powerful, easy-to-use database. Search by ingredients you already have, save your favorites, and get the exact tools needed to make every meal a success.
+            </p>
+            <hr>
+          </div>
+        </div>
+      </section>
+
+      <!-- Icon Cards Section -->
+      <section class="full-section cards nav1">
+        <div class="container">
+          <div class="row align-items-center">
+            <!-- Left Text -->
+            <div class="col-lg-6">
+              <div class="pe-lg-4 text-center text-lg-start mb-4 scroll-reveal reveal-left">
+
+                <h1 class="mb-4" style="font-family: var(--font-accent);">Explore the Database</h1>
+                <hr style="color:#1e1e1e; width:100%">
+
+                <p class="mb-4">
+                  Dive into my complete recipe collection. Search by ingredients you already have, filter by diet, and save your favorites for later.
+                </p>
+
+                <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+                  <a href="recipe.html" class="btn btn-lg px-4 link">
+                    Browse Recipes
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right GIF -->
+            <div class="col-lg-6 text-center scroll-reveal reveal-right">
+              <img
+                src="./assets/images/browse.gif"
+                alt="Delicious recipe"
+                class="img-fluid shadow image"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="full-section cards nav2">
+        <div class="container">
+          <div class="row align-items-center">
+            
+
+            <!-- Right GIF -->
+            <div class="col-lg-6 text-lg-start scroll-reveal reveal-left">
+              <img
+                src="./assets/images/blog.jpg"
+                alt="Delicious recipe"
+                class="img-fluid shadow image"
+              />
+            </div>
+            <!-- Left Text -->
+            <div class="col-lg-6">
+              <div class="pe-lg-4 text-center text-lg-start mb-4 scroll-reveal reveal-right">
+
+                <h1 class="mb-4 mt-4" style="font-family: var(--font-accent);">Notes from the Kitchen</h1>
+                <hr style="color:#1e1e1e; width:100%">
+
+                <p class="mb-4">
+                  Read the stories behind the food. I share my favorite cooking tips, seasonal ingredient guides, and behind-the-scenes moments from my kitchen.
+                </p>
+
+                <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+                  <a href="recipe.html" class="btn btn-lg px-4 link">
+                    Read the Blog
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="full-section cards nav3">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Left Text -->
+      <div class="col-lg-6">
+        <div class="pe-lg-4 text-center text-lg-start mb-4 scroll-reveal reveal-left">
+
+          <h1 class="mb-4" style="font-family: var(--font-accent);">Meet Jenna</h1>
+          <hr style="color:#1e1e1e; width:100%">
+
+          <p class="mb-4">
+            Get to know the home cook behind the screen. Discover my culinary journey and why I believe good food is meant to be shared.
+          </p>
+
+          <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+            <a href="about.html" class="btn btn-lg px-4 link">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right GIF -->
+      <div class="col-lg-6 text-center scroll-reveal reveal-right">
+        <img
+          src="./assets/images/meet.jpg"
+          alt="Delicious recipe"
+          class="img-fluid shadow image"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+      
+
+      
+<!-- Recipe of the Day Section -->
+<section class="full-section rotd-section rotd">
+  <div class="container">
+    <div class="rotd-header mb-5">
+      <p class="rotd-label">Daily Pick</p>
+      <h2>Recipe of the Day</h2>
+    </div>
+
+    <div class="flip-card-rotd mx-auto">
+      <div class="flip-card-rotd-inner">
+
+        <!-- FRONT: Image + Name + Quick Stats -->
+        <div class="flip-card-rotd-front">
+          <div class="rotd-img-wrap">
+            <img id="rotd-img" src="./assets/images/browse.gif" alt="Recipe of the Day" />
+            <span class="rotd-badge">Today's Pick</span>
+          </div>
+          <div class="rotd-front-body">
+            <h3 id="rotd-title">Creamy Tuscan Pasta</h3>
+            <div class="rotd-stats">
+              <span id="rotd-time">⏱ 30 min</span>
+              <span id="rotd-servings">🍽 4 servings</span>
+              <span id="rotd-calories">🔥 480 kcal</span>
+            </div>
+            <p id="rotd-summary" class="rotd-summary">A rich, velvety pasta loaded with sun-dried tomatoes, spinach, and a garlic cream sauce — weeknight comfort at its best.</p>
+            <p class="rotd-hint">Hover to see ingredients →</p>
+          </div>
+        </div>
+
+        <!-- BACK: Ingredients + CTA -->
+        <div class="flip-card-rotd-back">
+          <div class="rotd-back-body">
+            <p class="rotd-label" style="color: var(--color-accent);">What You'll Need</p>
+            <h3 id="rotd-back-title">Creamy Tuscan Pasta</h3>
+            <ul id="rotd-ingredients" class="rotd-ingredients-list">
+              <li>2 cups pasta</li>
+              <li>3 cloves garlic</li>
+              <li>1 cup heavy cream</li>
+              <li>½ cup sun-dried tomatoes</li>
+              <li>2 cups fresh spinach</li>
+              <li>Salt, pepper, parmesan</li>
+            </ul>
+            <a id="rotd-link" href="recipe.html" class="btn btn-lg px-4 link mt-3">
+              View Full Recipe →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="full-section newsletter-section">
+  <div class="newsletter-overlay justify-content-center align-items-center">
+    <div class="container">
+      <div class="newsletter-box">
+        <p class="rotd-label">Stay in the Loop</p>
+        <h2 class="mb-2">From Jenna's Kitchen to Your Inbox</h2>
+        <p class="newsletter-sub">New recipes, seasonal guides, and kitchen tips — delivered weekly. No spam, just good food.</p>
+
+        <form class="newsletter-form" action="action_page.php">
+          <div class="newsletter-fields">
+            <input type="text" placeholder="Your name" name="name" required />
+            <input type="email" placeholder="Your email address" name="mail" required />
+          </div>
+          <div class="newsletter-footer-row">
+            <label class="newsletter-check">
+              <input type="checkbox" checked name="subscribe" />
+              <span>Send me the weekly digest</span>
+            </label>
+            <button type="submit" class="btn btn-lg px-5 link newsletter-btn">
+              Subscribe
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--The Overlay Modal - Surprise Me -->
+<div id="modal-backdrop" class="modal-backdrop"></div>
+
+<article id="my-article-modal" class="article-modal surprise-modal">
+  <button class="close-modal-btn" aria-label="Close"></button>
+  <div class="modal-body">
+    <div class="surprise-loading">
+      <p>Finding something delicious...</p>
+    </div>
+    <div class="surprise-content" style="display:none;">
+      <div class="surprise-left">
+        <img id="surprise-img" src="" alt="Recipe" />
+        <div class="surprise-meta">
+          <span id="surprise-time">⏱ -- min</span>
+          <span id="surprise-servings">🍽 -- servings</span>
+        </div>
+      </div>
+      <div class="surprise-right">
+        <p class="surprise-label">Today's Surprise</p>
+        <h2 id="surprise-title">--</h2>
+        <p id="surprise-summary"></p>
+        <a id="surprise-link" href="#" target="_blank" class="btn btn-lg px-4 link mt-3">
+          See Full Recipe →
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- Bookmark Prompt - auto shows on 2nd visit, top center -->
+<div id="bookmark-prompt" class="bookmark-prompt">
+  <button class="close-modal-btn" id="close-bookmark" aria-label="Close"></button>
+  <div class="bookmark-left">
+    <img src="./assets/images/bookmark.png" alt="Save recipes"/>
+  </div>
+  <div class="bookmark-right">
+    <h3>Never Lose a Recipe</h3>
+    <p>Bookmark this page so Jenna's kitchen is always one tap away.</p>
+    <div class="d-flex gap-2 mt-3">
+      <button class="btn px-4 link" id="bookmark-confirm">Bookmark It</button>
+      <button class="btn px-3" id="bookmark-dismiss" style="color: var(--color-muted); border: 1px solid var(--color-border); border-radius: 18px;">Maybe Later</button>
+    </div>
+  </div>
+</div>
+
+<!-- Food Joke - bottom center, fires on page load -->
+<div id="joke-toast" class="joke-toast">
+  <button class="joke-close" id="close-joke" aria-label="Close">✕</button>
+  <p class="joke-label">🍳 Food for Thought</p>
+  <p id="joke-text">Loading a joke...</p>
+</div>
+    
+
+    <footer class="site-footer py-5">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Brand Column -->
+      <div class="col-md-4">
+        <h5 class="footer-brand">Jenna's <br>Recipedia</h5>
+        <p class="footer-tagline">Homemade recipes for every table — from Jenna's kitchen to yours.</p>
+        <div class="footer-social d-flex gap-3 mt-3">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- Pages Column -->
+      <div class="col-md-3">
+        <h6 class="footer-heading">Pages</h6>
+        <hr>
+        <ul class="list-unstyled">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="recipes.html">Recipes</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+
+      <!-- Recipes Column -->
+      <div class="col-md-3">
+        <h6 class="footer-heading">Recipes</h6>
+        <hr>
+        <ul class="list-unstyled">
+          <li><a href="recipes.html">Breakfast</a></li>
+          <li><a href="recipes.html">Lunch</a></li>
+          <li><a href="recipes.html">Dinner</a></li>
+          <li><a href="recipes.html">Desserts</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Column -->
+      <div class="col-md-2">
+        <h6 class="footer-heading">Contact</h6>
+        <hr>
+        <ul class="list-unstyled">
+          <li>jenna@recipes.com</li>
+          <li>(555) 000-0000</li>
+          <li>New York, NY</li>
+        </ul>
+      </div>
+
+    </div>
+
+        <hr class="my-4" />
+        <p class="footer-bottom">
+          &copy; 2026 Jenna's Recipedia. Developed by Team Phoenix.
+        </p>
+      </div>
+    </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script>
+  const wrapper = document.getElementById("wrapper");
+wrapper.addEventListener("scroll", function () {
+  if (wrapper.scrollTop > 80) {
+    nav.classList.add("scrolled");
+  } else {
+    nav.classList.remove("scrolled");
+  }
+});
+</script>
+    <script>
+      const nav = document.querySelector(".custom-navbar");
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 80) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/typecadence@^1"></script>
+    
+  </body>
+</html>
+
+

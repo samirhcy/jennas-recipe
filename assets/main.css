@@ -1,0 +1,924 @@
+/* --- CSS VARIABLES: This space will help us target specific design styles */
+:root {
+  /* Colors */
+  --color-bg: #F5F1EB;        /* soft beige */
+  --color-card: #FDF9F4;      /* card surface */
+  --color-border: #EDE3D6;    /* borders/dividers */
+  --color-accent: #C8A97E;    /* warm gold */
+  --color-primary: #8B6F47;   /* deep brown */
+  --color-text: #2F2A26;      /* main body text */
+  --color-muted: #6E6256;     /* secondary text */
+  --color-cta: #A0522D;       /* sienna for buttons */
+
+  /* Fonts */
+  --font-display: 'Playfair Display', serif;  
+  --font-body: 'DM Sans', sans-serif;
+  --font-accent: 'Lora', serif;
+
+  /* Transitions */
+  --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+/* BASE code */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  vertical-align: baseline;
+  
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    overflow-x: hidden;
+}
+/* HEADINGS code */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1rem; }
+h5 { font-size: 0.875rem; }
+h6 { font-size: 0.8rem; }
+
+a { text-decoration: none; color: inherit; }
+
+/*------------------------here starts the shared code-------------------*/
+/* NAVBAR */
+nav .container-fluid {
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  transition: var(--transition);
+  border-radius: 0;
+  border: 1px solid transparent;
+  background: transparent;
+  /*background-color: var(--color-bg);this thing can also help you add variation to the color of the effect*/
+  backdrop-filter: saturate(90%) blur(8px);/*use this to make the bg of each section transparent and add variation to the effect*/
+}
+
+.custom-navbar {
+  background-color: transparent;
+  backdrop-filter: saturate(90%) blur(12px);
+  -webkit-backdrop-filter: saturate(90%) blur(12px);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 18px;
+  width: 100%;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding: 1rem 0;
+}
+
+/* SCROLLED: dark pill morphs in- the effect*/
+.custom-navbar.scrolled {
+  padding: 0.5rem 0;
+}
+
+.custom-navbar.scrolled .container-fluid {
+  
+  background: #f5ddbaaa;;
+  
+  backdrop-filter: saturate(130%) blur(20px);
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+  max-width: 920px;
+}
+
+/* Nav text colors */
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link,
+.custom-navbar .navbar-toggler {
+  color: var(--color-text) !important;
+
+}
+
+.custom-navbar .nav-link:hover {
+  color: var(--color-accent) !important;
+}
+
+.custom-navbar .nav-link.active {
+  color: var(--color-accent) !important;
+  font-weight: 600;
+}
+
+/* Navbar adapts to section background */
+[data-nav-theme="dark"] .navbar-brand,
+[data-nav-theme="dark"] .nav-link,
+[data-nav-theme="dark"] .navbar-toggler {
+  color: var(--color-border) !important;
+}
+
+[data-nav-theme="dark"] .nav-link:hover {
+  color: var(--color-accent) !important;
+}
+
+[data-nav-theme="dark"] .nav-link.active {
+  color: var(--color-accent) !important;
+}
+
+/*----Full Section----*/
+#wrapper {
+  
+}
+
+
+ .full-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #fff;
+  font-size: 5rem;
+
+}
+.header {
+    margin-top: 0;
+    padding: 20px 50px;
+    
+}
+
+.header h3{
+font-family: var(--font-body);
+font-size: 15px;
+font-weight: 500px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(--color-accent);
+}
+
+.header p{
+    font-size: 17px;
+    padding-bottom: 10px;
+    max-width: 600px; 
+    color: var(--color-muted);
+}
+
+.header a.link{
+    color: var(--color-border);
+    border-radius: 18px;
+    background-color: var(--color-cta); 
+}
+
+.header .image{
+    border-radius: 40px; 
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+.purpose {
+  background-color: #2F2A26;
+  color: var(--color-border);
+  font-size: 30px;
+}
+
+.purpose h2{
+  padding-bottom: 20px;
+  font-family: var(--font-accent);
+font-size: 50px;
+font-weight: 500px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(--color-accent);
+}
+.purpose p{
+  padding:25px;
+  font-family: var(--font-body);
+  font-size: 30px;
+  color: var(--color-border);
+  letter-spacing: 1.2px;
+  line-height: 65px;
+}
+
+.nav1 {
+    background-image: url(assets/images/nav1.png);
+}
+.nav2 {
+    background-image: url(assets/images/nav2.png);
+}
+.nav3 {
+    background-image: url(assets/images/nav3.png);
+}
+
+
+.cards h3{
+font-family: var(--font-body);
+font-size: 15px;
+font-weight: 500px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(--color-accent);
+}
+
+.cards p{
+    font-size: 17px;
+    padding-bottom: 10px;
+    max-width: 600px;
+    color: var(--color-muted);
+}
+
+.cards a.link{
+    color: var(--color-border);
+    border-radius: 18px;
+    background-color: var(--color-cta); 
+}
+
+.cards .image{
+    border-radius: 40px; 
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+.news{
+  background-image: url(assets/images/news.jpg);
+  width: 100%;
+
+  background-repeat: no-repeat;
+}
+/*-----------The Overlay Modal CSS------------------*/
+/*extracted from my old code*/
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(250, 237, 213, 0.6);
+    backdrop-filter: saturate(20%) blur(3px);
+    z-index: 998;
+    
+    /* Hidden state */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+/*The Article Modal */
+.article-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    
+    
+  
+    width: 90%;
+    max-width: 800px; /* Change this to make it wider/narrower */
+    max-height: 90vh; /* Prevents it from going off-screen */
+    overflow-y: auto; /* Makes internal content scrollable if it's too long */
+    background: var(--color-bg); 
+    color: #211f1f;
+    padding: 5rem 4rem 4rem 4rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    z-index: 999;
+
+    /* Hidden state */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+/* Active Classes for both Backdrop and Modal */
+.modal-backdrop.active,
+.article-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+.article-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* CSS-Drawn Close Button */
+.close-modal-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.close-modal-btn::before,
+.close-modal-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.5rem;
+    height: 2px;
+    background: #1e1e1e; /* Color of the 'X' */
+    transition: background 0.2s, transform 0.2s;
+}
+
+.close-modal-btn:hover::before,
+.close-modal-btn:hover::after {
+    background: rgba(255, 255, 255, 0.5); /* Dim on hover */
+}
+
+.close-modal-btn::before { transform: translate(-50%, -50%) rotate(45deg); }
+.close-modal-btn::after { transform: translate(-50%, -50%) rotate(-45deg); }
+
+/*-----------The Overlay Modal CSS End------------------*/
+
+/* -- Surprise Me Modal Layout -- */
+.surprise-modal {
+  max-width: 860px;
+  padding: 3rem;
+}
+
+.surprise-content {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.surprise-left {
+  flex: 0 0 40%;
+}
+
+.surprise-left img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  max-height: 320px;
+}
+
+.surprise-meta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.surprise-right {
+  flex: 1;
+}
+
+.surprise-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+
+.surprise-right h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 1rem;
+}
+
+.surprise-right p {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+/*-- Bookmark Prompt -- */
+.bookmark-prompt {
+  position: fixed;
+  top: -200px; /* hidden off-screen */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 640px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  display: flex;
+  overflow: hidden;
+  z-index: 1050;
+  transition: top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.bookmark-prompt.active {
+  top: 24px;
+}
+
+.bookmark-left {
+  flex: 0 0 40%;
+}
+
+.bookmark-left img {
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+}
+
+.bookmark-right {
+  flex: 1;
+  padding: 2rem 1.75rem;
+  position: relative;
+}
+
+.bookmark-right h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.bookmark-right p {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.bookmark-prompt .close-modal-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+/* -- Recipe of the Day -- */
+.rotd{
+  background-image: url(assets/images/rotd.png);
+  background-size: cover;
+  background-position: center;
+}
+
+
+.rotd-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--color-accent);
+  margin-bottom: 0.4rem;
+}
+
+.rotd-header {
+  text-align: center;
+}
+
+.rotd-header h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+/* Flip Card - ROTD */
+.flip-card-rotd {
+  width: min(780px, 95vw);
+  height: 420px;
+  perspective: 1400px;
+}
+
+.flip-card-rotd-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flip-card-rotd:hover .flip-card-rotd-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-rotd-front,
+.flip-card-rotd-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  border: 1px solid var(--color-border);
+  backface-visibility: hidden;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+/* FRONT */
+.flip-card-rotd-front {
+  background: var(--color-card);
+}
+
+.rotd-img-wrap {
+  flex: 0 0 45%;
+  position: relative;
+  overflow: hidden;
+}
+
+.rotd-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.flip-card-rotd:hover .rotd-img-wrap img {
+  transform: scale(1.04);
+}
+
+.rotd-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--color-cta);
+  color: #fff;
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+}
+
+.rotd-front-body {
+  flex: 1;
+  padding: 2rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.rotd-front-body h3 {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  line-height: 1.2;
+}
+
+.rotd-stats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.rotd-summary {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.65;
+}
+
+.rotd-hint {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: var(--color-accent);
+  margin-top: auto;
+}
+
+/* BACK */
+.flip-card-rotd-back {
+  background: var(--color-text);
+  transform: rotateY(180deg);
+}
+
+.rotd-back-body {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.rotd-back-body h3 {
+  font-size: 1.4rem;
+  color: var(--color-border);
+}
+
+.rotd-ingredients-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem 1.5rem;
+}
+
+.rotd-ingredients-list li {
+  font-size: 0.9rem;
+  color: rgba(245, 241, 235, 0.75);
+  padding-left: 0.75rem;
+  position: relative;
+}
+
+.rotd-ingredients-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+/* -- Food Joke Toast -- */
+.joke-toast {
+  position: fixed;
+  bottom: -160px; /* hidden below screen */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 420px;
+  background: var(--color-text);
+  color: var(--color-border);
+  border-radius: 16px;
+  padding: 1.25rem 1.75rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  z-index: 1050;
+  transition: bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.joke-toast.active {
+  bottom: 24px;
+}
+
+.joke-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+
+.joke-toast p#joke-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-border);
+}
+
+.joke-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.joke-close:hover {
+  color: var(--color-border);
+}
+
+/* -- Newsletter Section -- */
+.newsletter-section {
+  background-color: var(--color-border);
+  
+}
+
+.newsletter-overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.newsletter-box {
+  background-image: url('./assets/images/news.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 24px;
+  margin: 0 auto;
+  padding: 3rem 3.5rem;
+  max-width: 580px;
+  width: 100%;
+  
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(47, 42, 38, 0.55);
+  backdrop-filter: blur(2px);
+  border-radius: 24px;
+  transition: var(--transition);
+  z-index: 0;
+}
+
+
+.newsletter-box:hover::before {
+  background: #1e1e1e;
+}
+
+.newsletter-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.newsletter-box > * {
+  position: relative;
+  z-index: 1;
+  align-items: center;
+}
+
+.newsletter-box:hover {
+  background: rgba(253, 249, 244, 0.18);
+  border-color: rgba(200, 169, 126, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.newsletter-box h2 {
+  color: var(--color-border);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.newsletter-sub {
+  color: rgba(237, 227, 214, 0.75);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.newsletter-fields {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.newsletter-fields input {
+  flex: 1;
+  padding: 0.85rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(237, 227, 214, 0.3);
+  background: rgba(255,255,255,0.1);
+  color: var(--color-border);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+.newsletter-fields input::placeholder {
+  color: rgba(237, 227, 214, 0.5);
+}
+
+.newsletter-fields input:focus {
+  border-color: var(--color-accent);
+  background: rgba(255,255,255,0.15);
+}
+
+.newsletter-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.newsletter-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(237, 227, 214, 0.7);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.newsletter-check input[type="checkbox"] {
+  accent-color: var(--color-accent);
+  width: 15px;
+  height: 15px;
+}
+
+.newsletter-btn {
+  background-color: var(--color-cta);
+  color: var(--color-border);
+  border-radius: 18px;
+  border: none;
+  transition: var(--transition);
+}
+
+.newsletter-btn:hover {
+  background-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* ---Scroll Progress Bar --- */
+#scroll-progress {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-cta));
+  z-index: 9999;
+  transition: width 0.1s linear;
+  margin-bottom: -3px; 
+}
+
+/* -- Scroll Reveal Base -- */
+.scroll-reveal {
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-left {
+  transform: translateX(-40px);
+}
+
+.reveal-right {
+  transform: translateX(40px);
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/*---------Footer------------*/
+.site-footer {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 40px;
+  color: var(--color-border);
+}
+
+.footer-heading {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: var(--color-accent);
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+.site-footer ul li {
+  margin-bottom: 8px;
+  color: rgba(245, 241, 235, 0.65);
+}
+
+.site-footer a {
+  color: rgba(245, 241, 235, 0.65);
+  transition: var(--transition);
+}
+
+.site-footer a:hover {
+  color: var(--color-bg);
+}
+
+.footer-social a {
+  font-size: 1.2rem;
+  color: rgba(245, 241, 235, 0.65);
+  transition: var(--transition);
+}
+
+.footer-social a:hover {
+  color: var(--color-accent);
+}
+
+.footer-bottom {
+  justify-content: center;
+  display: flex;
+  font-size: 0.8rem;
+  color: rgba(245, 241, 235, 0.4);
+  padding-top: 10px;
+  align-items: center;
+}
+
+.footer-divider {
+  border-color: rgba(245, 241, 235, 0.12);
+}
+
+
+
+/* .about{
+    background-color: #6E6256;
+    position: relative;
+    height: 100%;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.12);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+} */
