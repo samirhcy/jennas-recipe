@@ -74,10 +74,10 @@
             <h1> Lets Cook</h1>    
             
             <div class="title-card">
-                <div class="container">
-                  <h3>Recipe:</h3> 
-                    
-                </div>
+              <div class="container">
+                <h3 id="cook-recipe-title">Loading recipe...</h3>
+                <span id="cook-recipe-meta" style="font-size:13px; color: var(--color-muted, #6f6258);"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -128,16 +128,7 @@
 
     
 
-    <script>
-  const wrapper = document.getElementById("wrapper");
-wrapper.addEventListener("scroll", function () {
-  if (wrapper.scrollTop > 80) {
-    nav.classList.add("scrolled");
-  } else {
-    nav.classList.remove("scrolled");
-  }
-});
-</script>
+
     <script>
       const nav = document.querySelector(".custom-navbar");
       window.addEventListener("scroll", function () {
