@@ -1,4 +1,4 @@
-const SPOONACULAR_KEY = "ead2c99004624a56a481d4249ca981cb";
+const SPOONACULAR_KEY = "9b11bc4e20ba49f484a7d2740b8650c7";
 
 // Wait for the page to fully load before running anything
 $(document).ready(function () {   

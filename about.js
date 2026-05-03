@@ -1,4 +1,4 @@
-const ABOUT_API_KEY = "ead2c99004624a56a481d4249ca981cb";
+const ABOUT_API_KEY = "9b11bc4e20ba49f484a7d2740b8650c7";
 
 //  Navbar scroll pill
 const nav = document.querySelector(".custom-navbar");
@@ -43,6 +43,12 @@ async function loadFeaturedRecipes() {
       `https://api.spoonacular.com/recipes/findByIngredients?ingredients=chicken,garlic,tomato&number=3&ranking=1&apiKey=${ABOUT_API_KEY}`
     );
     const recipes = await res.json();
+    if (!Array.isArray(recipes)) {
+        console.warn("API response:", recipes);
+        container.innerHTML = `<div class="col-12 text-center" style="color:var(--color-muted);padding:2rem;">Could not load recipes right now.</div>`;
+        return;
+    }
+
 
     if (!recipes || recipes.length === 0) {
       container.innerHTML = `<div class="col-12 text-center" style="color:var(--color-muted);">No recipes found.</div>`;
