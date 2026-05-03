@@ -35,30 +35,78 @@ body {
   z-index: 9999;
 }
 
-.custom-navbar {
+/* NAVBAR */
+nav .container-fluid {
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  transition: var(--transition);
+  border-radius: 0;
+  border: 1px solid transparent;
   background: transparent;
+  /*background-color: var(--color-bg);this thing can also help you add variation to the color of the effect*/
+  backdrop-filter: saturate(90%) blur(8px);/*use this to make the bg of each section transparent and add variation to the effect*/
+}
+
+.custom-navbar {
+  background-color: transparent;
   backdrop-filter: saturate(90%) blur(12px);
   -webkit-backdrop-filter: saturate(90%) blur(12px);
-  font-family: "DM Sans", sans-serif;
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: 18px;
   width: 100%;
-  transition: all 0.4s ease;
-  padding-left: 40px;
-  padding-right: 40px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding: 1rem 0;
 }
 
+/* SCROLLED: dark pill morphs in- the effect*/
 .custom-navbar.scrolled {
   padding: 0.5rem 0;
 }
 
-.custom-navbar .nav-link {
-  color: var(--color-text) !important;
-  font-weight: 500;
+.custom-navbar.scrolled .container-fluid {
+  
+  background: #f5ddbaaa;;
+  
+  backdrop-filter: saturate(130%) blur(20px);
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+  max-width: 920px;
 }
 
-.custom-navbar .nav-link.active,
+/* Nav text colors */
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link,
+.custom-navbar .navbar-toggler {
+  color: var(--color-text) !important;
+
+}
+
 .custom-navbar .nav-link:hover {
+  color: var(--color-accent) !important;
+}
+
+.custom-navbar .nav-link.active {
+  color: var(--color-accent) !important;
+  font-weight: 600;
+}
+
+/* Navbar adapts to section background */
+[data-nav-theme="dark"] .navbar-brand,
+[data-nav-theme="dark"] .nav-link,
+[data-nav-theme="dark"] .navbar-toggler {
+  color: var(--color-border) !important;
+}
+
+[data-nav-theme="dark"] .nav-link:hover {
+  color: var(--color-accent) !important;
+}
+
+[data-nav-theme="dark"] .nav-link.active {
   color: var(--color-accent) !important;
 }
 
@@ -244,12 +292,46 @@ body {
 }
 
 .match-score {
+  font-size: 12px;
+  font-weight: 600;
   color: var(--color-accent);
-  font-weight: 700;
+  background: rgba(160, 82, 45, 0.1);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  display: inline-block;
+  margin-top: 0.3rem;
 }
 
 .floating-sidebar {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  position: fixed;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1040;
+}
+
+.floating-sidebar button {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(160, 82, 45, 0.2);
+  background: rgba(255, 248, 240, 0.92);
+  backdrop-filter: blur(8px);
+  color: var(--color-accent);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(66, 33, 18, 0.12);
+}
+
+.floating-sidebar button:hover {
+  background: var(--color-accent);
+  color: #fff;
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(160, 82, 45, 0.25);
 }
 
 .recipe-modal {
@@ -466,4 +548,81 @@ body {
   color: white;
   padding: 0.8rem 1rem;
   font-weight: 600;
+}
+
+.skeleton-card {
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--color-surface-strong);
+  border: 1px solid rgba(160, 82, 45, 0.1);
+}
+
+.skeleton-img {
+  width: 100%;
+  height: 230px;
+  background: linear-gradient(90deg, #ede8e2 25%, #f5f1eb 50%, #ede8e2 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+.skeleton-body {
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.skeleton-line {
+  height: 14px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #ede8e2 25%, #f5f1eb 50%, #ede8e2 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+.skeleton-line.short {
+  width: 55%;
+}
+
+.skeleton-line.btn {
+  width: 38%;
+  height: 32px;
+  border-radius: 14px;
+  margin-top: 0.4rem;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.btn-reset-filters {
+  border: 1px solid rgba(160, 82, 45, 0.25);
+  border-radius: 18px;
+  background: transparent;
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  display: none;
+}
+
+.btn-reset-filters.visible {
+  display: inline-block;
+}
+
+.btn-reset-filters:hover {
+  background: rgba(160, 82, 45, 0.1);
+}
+
+.filter-active-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  margin-left: 5px;
+  vertical-align: middle;
 }

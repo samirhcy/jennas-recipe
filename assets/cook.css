@@ -1,154 +1,156 @@
-*,
-*:before,
-*:after {
+
+* , *:before, *:after {
   box-sizing: border-box;
-  position: relative;
 }
 
-.features {
-  width: 75vw;
-  height: 50vh;
-  display: grid;
-  place-content: center;
-  grid-column-gap: 0.3rem;
-  grid-row-gap: 0.3rem;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+/*  Gallery: State 1 */
+.cm-label {
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var(--font-body);
 }
 
-.feature {
-  --x-px: calc(var(--x) * 1px);
-  --y-px: calc(var(--y) * 1px);
-  --border: 2px;
-  background: rgba(255, 255, 255, 0.125);
-  border-radius: 0.5rem;
+.cm-sub {
+  font-size: 1rem;
+  color: var(--color-muted);
+}
+
+.cm-gallery-card {
+  border-radius: 22px;
   overflow: hidden;
-
-  &:before,
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    inset: 0px;
-    border-radius: inherit;
-    background: radial-gradient(
-      800px circle at var(--x-px) var(--y-px),
-      rgba(255, 255, 255, 0.3),
-      transparent 40%
-    );
-  }
-
-  &:before {
-    z-index: 1;
-  }
-
-  &:after {
-    opacity: 0;
-    z-index: 2;
-    transition: opacity 0.4s ease;
-  }
-
-  &:hover:after {
-    opacity: 1;
-  }
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 12px 32px rgba(66, 33, 18, 0.10);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  height: 100%;
 }
 
-.feature-content {
-  background: rgb(19, 19, 21);
-  border-radius: inherit;
-  color: white;
-  text-decoration: none;
-  z-index: 1;
-  position: absolute;
-  inset: var(--border);
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-row-gap: 0.5rem;
-  padding: 0 1rem 0 2rem;
-
-  > strong {
-    align-self: self-end;
-    font-size: 125%;
-  }
-
-  > span {
-    opacity: 0.7;
-  }
+.cm-gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 50px rgba(66, 33, 18, 0.16);
 }
 
-.dashboard {
-  
-}
-
-
-.c-header {
-    /*Sizing of the element*/
-  color: white;
-  height: 200px;
+.cm-gallery-card img {
   width: 100%;
-  font-weight: 500;
-  max-height: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.cm-gallery-card h5 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+}
+
+/* Dashboard: State 2 */
+#cm-dashboard {
+  background-color: var(--color-bg);
+  min-height: 100vh;
+}
+
+.cm-dash-header {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cm-widget {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 22px;
+  box-shadow: 0 12px 32px rgba(66, 33, 18, 0.08);
+  height: 100%;
+}
+
+.cm-widget h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0;
+}
+
+/* Ingredients */
+.cm-ingredient-item {
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.9rem;
+  transition: opacity 0.2s ease;
+}
+
+.cm-ingredient-item:last-child {
+  border-bottom: none;
+}
+
+.cm-ingredient-item label {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  /*Set and adjust background image*/
-
-  text-align: center;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-    
-
-.c-header h3{
-font-family: var(--font-body);
-font-size: 15px;
-font-weight: 500px;
-letter-spacing: 2px;
-text-transform: uppercase;
-color: var(--color-accent);
+  align-items: flex-start;
+  gap: 0.6rem;
+  cursor: pointer;
+  margin: 0;
 }
 
-.c-header p{
-    font-size: 17px;
-    padding-bottom: 10px;
-    max-width: 600px; 
-    color: var(--color-muted);
+.cm-ingredient-item input[type="checkbox"] {
+  margin-top: 3px;
+  accent-color: var(--color-accent);
+  flex-shrink: 0;
 }
 
-.c-header a.link{
-    color: var(--color-border);
-    border-radius: 18px;
-    background-color: var(--color-cta); 
+.cm-ingredient-item.checked span {
+  text-decoration: line-through;
+  opacity: 0.45;
 }
 
-.c-header .image{
-    border-radius: 40px; 
-    width: 100%;
-    max-width: 600px;
-    height: auto;
+/*  Step Navigator */
+.cm-step-progress {
+  background: var(--color-border);
+  border-radius: 999px;
+  height: 6px;
+  overflow: hidden;
 }
 
-
-.title-card {
-  display: flex;
-  align-items: center;
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(43, 43, 40, 0.2);
-  transition: 0.3s;
-  text-align: left;
-  height: 80px;
-  max-width: 100%;
-  border-radius: 10px;
-  border: 2px solid #1e1e1e;
-
+#cmProgressBar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-accent), #d08b5b);
+  border-radius: 999px;
+  transition: width 0.35s ease;
 }
 
-/* On mouse-over, add a deeper shadow */
-.title-card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+#cmStepText {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  min-height: 120px;
+}
+
+/* Timer  */
+.cm-timer {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 4px;
+}
+
+/* Notes */
+#cmNotes {
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  background: rgba(255,255,255,0.6);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  resize: vertical;
+}
+
+#cmNotes:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 0.2rem rgba(200, 169, 126, 0.2);
+  outline: none;
 }
