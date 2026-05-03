@@ -85,7 +85,7 @@ const blogArticles = [
     id: "habits",
     label: "Tips",
     title: "Simple Cooking Habits That Changed Everything",
-    image: "./images/blog.jpg",
+    image: "assets/images/blog1.jpg",
     excerpt: "Small shifts in how I approach the kitchen every day.",
     body: `
       <p>I used to think great cooking required talent. Turns out, it mostly requires a few small habits practiced consistently.</p>
@@ -99,7 +99,7 @@ const blogArticles = [
     id: "seasonal",
     label: "Seasonal",
     title: "Why I Stopped Fighting the Season",
-    image: "./images/news.jpg",
+    image: "assets/images/blog2.jpg",
     excerpt: "Cooking with what's actually ripe changes everything about flavor.",
     body: `
       <p>There was a period where I tried to cook strawberry desserts in November and roasted squash in July. The results were technically fine. They were also hollow — missing that quality I couldn't name until I stopped doing it.</p>
@@ -113,7 +113,7 @@ const blogArticles = [
     id: "newmeals",
     label: "Recipes",
     title: "How I Find a New Recipe When I Have No Idea What to Cook",
-    image: "./images/browse.gif",
+    image: "assets/images/blog3.jpg",
     excerpt: "A practical method for breaking out of the same five dinners.",
     body: `
       <p>We all have a rotation. Mine used to be: pasta, stir fry, tacos, soup, repeat. For years. I wasn't unhappy exactly — but I wasn't excited either.</p>
@@ -127,7 +127,7 @@ const blogArticles = [
     id: "behind",
     label: "Kitchen Notes",
     title: "The Recipes That Didn't Come From the Internet",
-    image: "./images/meet.jpg",
+    image: "assets/images/blog4.jpg",
     excerpt: "Some recipes have history. These are the ones that matter most to me.",
     body: `
       <p>My grandmother never measured anything. She'd hold a handful of flour over the bowl, look at it for a second, then let it fall. I used to watch her and think she was being careless. I know now she was being precise in a way that no measuring cup can capture — decades of muscle memory, of feel, of knowing.</p>
