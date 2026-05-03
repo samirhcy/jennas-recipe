@@ -6,11 +6,19 @@
   --color-muted: #6f6258;
   --color-accent: #a0522d;
   --color-accent-dark: #7f3f22;
+  --color-accent2: #C8A97E;
   --color-border: rgba(160, 82, 45, 0.16);
   --color-shadow: 0 18px 45px rgba(66, 33, 18, 0.14);
   --radius-xl: 28px;
   --radius-lg: 22px;
   --radius-md: 18px;
+  /* Fonts */
+  --font-display: 'Playfair Display', serif;  
+  --font-body: 'DM Sans', sans-serif;
+  --font-accent: 'Lora', serif;
+
+  /* Transitions */
+  --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 body {
@@ -370,23 +378,6 @@ nav .container-fluid {
   gap: 1.25rem;
 }
 
-.site-footer {
-  background-color: #2f2a26;
-  color: #f5f1eb;
-}
-
-.footer-tagline,
-.footer-bottom,
-.site-footer li,
-.site-footer a {
-  color: rgba(245, 241, 235, 0.8);
-  text-decoration: none;
-}
-
-.site-footer a:hover {
-  color: #fff;
-}
-
 .scroll-reveal {
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -646,13 +637,13 @@ nav .container-fluid {
 .footer-brand {
   font-family: var(--font-display);
   font-size: 40px;
-  color: var(--color-border);
+  color: var(--color-accent2);
 }
 
 .footer-heading {
   text-transform: uppercase;
   letter-spacing: 5px;
-  color: var(--color-accent);
+  color: var(--color-accent2);
   font-size: 15px;
   padding-bottom: 10px;
 }
