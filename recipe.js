@@ -458,6 +458,8 @@ if (recipeSearchForm) {
   });
 }
 
+let currentOffset = 0;
+const PAGE_SIZE = 8;
 
 async function fetchRecipes(append = false) {
   if (!append) currentOffset = 0;
@@ -568,8 +570,7 @@ if (loadMoreBtn) {
 
 
 
-let currentOffset = 0;
-const PAGE_SIZE = 8;
+
 
 function renderRecipes(recipes, append = false) {
   if (!append) recipeGrid.innerHTML = "";
