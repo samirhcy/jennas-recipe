@@ -1,0 +1,480 @@
+.reveal-up {
+  transform: translateY(40px);
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* HERO: Full-bleed editorial */
+.about-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url("./images/nav3.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 20, 12, 0.58);
+  backdrop-filter: blur(2px);
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  padding: 2rem;
+}
+
+.about-hero-content h3 {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+.about-hero-content h1 {
+  color: var(--color-border);
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  margin-bottom: 1.25rem;
+}
+
+.about-hero-content p {
+  color: rgba(237, 227, 214, 0.8);
+  font-size: 1.1rem;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+}
+
+/*  MEET JENNA: Light section  */
+.about-meet {
+  background-color: var(--color-bg);
+  padding: 6rem 0;
+}
+
+.about-label {
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.about-img {
+  border-radius: 40px;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  box-shadow: 0 18px 45px rgba(66, 33, 18, 0.14);
+  object-fit: cover;
+}
+
+.about-pull-quote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1.25rem;
+  margin: 1.75rem 0;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--color-primary);
+  line-height: 1.7;
+}
+
+/*  FEATURED RECIPES  */
+.about-recipes {
+  background-color: var(--color-card);
+  padding: 5rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-recipes .section-accent-rule {
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 999px;
+  margin: 0.75rem auto 0;
+}
+
+.about-recipe-card {
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 12px 32px rgba(66, 33, 18, 0.08);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  height: 100%;
+}
+
+.about-recipe-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 50px rgba(66, 33, 18, 0.15);
+}
+
+.about-recipe-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.about-recipe-card-body {
+  padding: 1.25rem;
+}
+
+.about-recipe-card-body h5 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--color-text);
+  margin-bottom: 0.4rem;
+}
+
+.about-recipe-card-body p {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+/* ── BLOG: Dark section ── */
+.about-blog {
+  background-color: #2f2a26;
+  padding: 6rem 0;
+}
+
+.about-blog .about-label {
+  color: var(--color-accent);
+}
+
+.about-blog h2 {
+  color: var(--color-border);
+}
+
+.about-blog > .container > .text-center > p {
+  color: rgba(237, 227, 214, 0.7);
+}
+
+.about-blog-card {
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(255, 248, 240, 0.06);
+  border: 1px solid rgba(237, 227, 214, 0.12);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  display: flex;
+  gap: 0;
+}
+
+/* Alternating layout */
+.about-blog-card.reverse {
+  flex-direction: row-reverse;
+}
+
+.about-blog-card img {
+  width: 42%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.about-blog-card-body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.about-blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.3);
+}
+
+.about-blog-card-label {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.about-blog-card-body h3 {
+  color: var(--color-border);
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+
+.about-blog-card-body p {
+  color: rgba(237, 227, 214, 0.65);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.btn-blog-read {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 169, 126, 0.4);
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  width: fit-content;
+}
+
+.btn-blog-read:hover {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+
+/* BLOG OVERLAY MODAL  */
+.about-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 20, 12, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 1080;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.about-modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.about-article-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -48%) scale(0.97);
+  width: 92%;
+  max-width: 780px;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--color-bg);
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+  z-index: 1090;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.about-article-modal.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.about-modal-hero {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 28px 28px 0 0;
+}
+
+.about-modal-body {
+  padding: 2.5rem 2.75rem 3rem;
+}
+
+.about-modal-body .about-blog-card-label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.about-modal-body h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 1.25rem;
+  line-height: 1.25;
+}
+
+.about-modal-body p {
+  font-size: 0.97rem;
+  color: var(--color-muted);
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+.about-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(47, 42, 38, 0.75);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-border);
+  font-size: 1.2rem;
+  transition: background 0.2s ease;
+}
+
+.about-modal-close:hover {
+  background: var(--color-accent);
+}
+
+/* ── NEWSLETTER VARIATION ── */
+.about-newsletter {
+  background-color: var(--color-bg);
+  padding: 6rem 0;
+}
+
+.about-newsletter-box {
+  background-image: url('./images/news.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 28px;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 3.5rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.about-newsletter-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(47, 42, 38, 0.58);
+  backdrop-filter: blur(2px);
+  border-radius: 28px;
+  z-index: 0;
+}
+
+.about-newsletter-box > * {
+  position: relative;
+  z-index: 1;
+}
+
+.about-newsletter-box h2 {
+  color: var(--color-border);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 0.5rem;
+}
+
+.about-newsletter-note {
+  color: rgba(237, 227, 214, 0.72);
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-bottom: 1.75rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-pref-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.about-pref-pill {
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 169, 126, 0.4);
+  background: transparent;
+  color: rgba(237, 227, 214, 0.75);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.about-pref-pill.selected,
+.about-pref-pill:hover {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+
+.about-newsletter-email {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.about-newsletter-email input {
+  flex: 1;
+  padding: 0.85rem 1.25rem;
+  border-radius: 14px;
+  border: 1px solid rgba(237, 227, 214, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-border);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.about-newsletter-email input::placeholder {
+  color: rgba(237, 227, 214, 0.45);
+}
+
+.about-newsletter-email input:focus {
+  border-color: var(--color-accent);
+}
+
+.about-newsletter-email button {
+  padding: 0.85rem 1.5rem;
+  border-radius: 14px;
+  border: none;
+  background: var(--color-cta);
+  color: #fff;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.about-newsletter-email button:hover {
+  background: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .about-blog-card,
+  .about-blog-card.reverse {
+    flex-direction: column;
+  }
+
+  .about-blog-card img {
+    width: 100%;
+    height: 220px;
+  }
+
+  .about-modal-body {
+    padding: 1.75rem 1.5rem 2rem;
+  }
+
+  .about-newsletter-email {
+    flex-direction: column;
+  }
+}

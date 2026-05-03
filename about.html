@@ -9,78 +9,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Lora:ital@1&display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="./assets/main.css" />
+  <link rel="stylesheet" href="about.css" />
 
-  <style>
-    .about-hero {
-      background-image: url("./assets/images/nav3.png");
-      background-size: cover;
-      background-position: center;
-    }
-
-    .about-dark {
-      background-color: #2F2A26;
-      color: var(--color-border);
-    }
-
-    .about-dark h1,
-    .about-dark h2,
-    .about-dark h3,
-    .about-dark p {
-      color: var(--color-border);
-    }
-
-    .about-dark h3,
-    .about-label {
-      color: var(--color-accent);
-      font-family: var(--font-body);
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .about-img {
-      border-radius: 40px;
-      width: 100%;
-      max-width: 520px;
-      height: auto;
-      box-shadow: 0 18px 45px rgba(66, 33, 18, 0.14);
-      object-fit: cover;
-    }
-
-    .about-card {
-      border-radius: 28px;
-      overflow: hidden;
-      background: var(--color-card);
-      border: 1px solid var(--color-border);
-      box-shadow: 0 18px 45px rgba(66, 33, 18, 0.14);
-      transition: 0.3s ease;
-      height: 100%;
-    }
-
-    .about-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 25px 60px rgba(66, 33, 18, 0.22);
-    }
-
-    .about-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-
-    .about-card-body {
-      padding: 1.5rem;
-    }
-
-    .about-card-label {
-      color: var(--color-accent);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.75rem;
-      font-weight: 700;
-    }
-  </style>
 </head>
 
 <body id="home-bg">
@@ -130,41 +60,20 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="full-section header about-hero">
-      <div class="container">
-        <div class="row align-items-center g-5">
-          <div class="col-lg-6">
-            <div class="pe-lg-4 text-center text-lg-start mb-4">
-              <h3 class="mb-2">Meet the cook</h3>
-              <h1 class="mb-4">Meet Jenna</h1>
-              <p class="mb-4">
-                Welcome to Jenna’s Recipedia, a warm space for simple recipes,
-                kitchen inspiration and meals made with love.
-              </p>
-
-              <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
-                <a href="#meet-jenna" class="btn btn-lg px-4 link">
-                  Read Jenna's Story
-                </a>
-                <a href="recipe.html" class="btn btn-lg px-4 link">
-                  Browse Recipes
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6 text-center">
-            <img
-              src="./assets/images/meet.jpg"
-              alt="Jenna cooking"
-              class="img-fluid shadow image"
-            />
-          </div>
+    <header class="about-hero">
+      <div class="about-hero-overlay"></div>
+        <div class="about-hero-content">
+          <h3>Meet the cook</h3>
+          <h1>Hi, I'm Jenna.</h1>
+          <p>A home cook, a storyteller, and someone who believes the best meals are made with whatever you already have.</p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+          <a href="#meet-jenna" class="btn btn-lg px-4 link">Read My Story</a>
+          <a href="recipe.html" class="btn btn-lg px-4" style="border:1px solid rgba(237,227,214,0.4);border-radius:18px;color:var(--color-border);background:transparent;">Browse Recipes</a>
         </div>
       </div>
     </header>
 
-    <!-- PURPOSE / MEET JENNA SECTION -->
+    <!-- MEET JENNA SECTION -->
     <section id="meet-jenna" class="full-section about-dark">
       <div class="container">
         <div class="row align-items-center g-5">
@@ -185,6 +94,10 @@
               Jenna is a passionate home cook who has spent years creating flavorful
               meals for friends and family.
             </p>
+            <blockquote class="about-pull-quote">
+  "I don't cook to impress. I cook to connect — with the people at my table and with the ingredients in front of me."
+</blockquote>
+
             <p>
               She believes cooking should be fun, creative and stress-free. Her goal
               is to help people cook with confidence, even when they do not know where
@@ -204,11 +117,11 @@
   <div class="container" style="max-width: 900px;">
     
     <div class="text-center mb-4 scroll-reveal reveal-up">
-      <p class="about-label">Featured Picks</p>
 
       <h2 style="font-family: var(--font-accent); font-size: 2.2rem;">
         Jenna's Featured Recipes
       </h2>
+      <span class="section-accent-rule"></span>
 
       <p class="mx-auto" style="max-width: 500px; font-size: 0.95rem;">
         A few recipe cards to help visitors explore meals quickly.
@@ -216,102 +129,104 @@
     </div>
 
     <!-- FIXED SIZE + CENTERED -->
-    <div class="row g-3 justify-content-center" id="recipeCards" style="font-size: 1rem;"></div>
+    <div class="row g-4 justify-content-center" id="recipeCards"></div>
 
   </div>
 </section>
 
-   <!-- BLOG POSTS SECTION -->
-<section class="full-section">
+   <!-- BLOG: Dark section -->
+<section class="about-blog">
   <div class="container">
     <div class="text-center mb-5 scroll-reveal reveal-up">
-      <p class="about-label">Notes from the Kitchen</p>
-      <h1 style="font-family: var(--font-accent);">Jenna's Blog Posts</h1>
-      <p class="mx-auto">
-        Cooking tips, ingredient guides and behind-the-scenes stories from Jenna’s kitchen.
+      <span class="about-label">Notes from the Kitchen</span>
+      <h2>Jenna's Blog</h2>
+      <p style="color:rgba(237,227,214,0.65);max-width:480px;margin:0.75rem auto 0;font-size:0.95rem;">
+        Cooking tips, ingredient guides, and behind-the-scenes stories.
       </p>
     </div>
 
-    <div class="row g-4">
-      <div class="col-md-6 scroll-reveal reveal-left">
-        <div class="about-card">
-          <img src="./assets/images/blog.jpg" alt="Cooking tips" />
-          <div class="about-card-body">
-            <p class="about-card-label">Tips</p>
-            <h3>Simple Cooking Habits</h3>
-            <p>Small kitchen habits that make cooking faster, cleaner and less stressful.</p>
-          </div>
+    <div class="d-flex flex-column gap-4">
+
+      <!-- Card 1 -->
+      <div class="about-blog-card scroll-reveal reveal-left">
+        <img src="./assets/images/blog.jpg" alt="Cooking habits" />
+        <div class="about-blog-card-body">
+          <span class="about-blog-card-label">Tips</span>
+          <h3>Simple Cooking Habits That Changed Everything</h3>
+          <p>Small shifts in how I approach the kitchen every day — mise en place, tasting constantly, and why a clean workspace matters more than any recipe.</p>
+          <button class="btn-blog-read" onclick="openBlogModal('habits')">Read Article →</button>
         </div>
       </div>
 
-      <div class="col-md-6 scroll-reveal reveal-right">
-        <div class="about-card">
-          <img src="./assets/images/news.jpg" alt="Fresh ingredients" />
-          <div class="about-card-body">
-            <p class="about-card-label">Seasonal</p>
-            <h3>Fresh Ingredients</h3>
-            <p>Learn how seasonal ingredients can make your meals taste better.</p>
-          </div>
+      <!-- Card 2 (reversed) -->
+      <div class="about-blog-card reverse scroll-reveal reveal-right">
+        <img src="./assets/images/news.jpg" alt="Seasonal ingredients" />
+        <div class="about-blog-card-body">
+          <span class="about-blog-card-label">Seasonal</span>
+          <h3>Why I Stopped Fighting the Season</h3>
+          <p>Cooking with what's actually ripe changes everything about flavor. A tomato in August and a tomato in January are not the same ingredient.</p>
+          <button class="btn-blog-read" onclick="openBlogModal('seasonal')">Read Article →</button>
         </div>
       </div>
 
-      <div class="col-md-6 scroll-reveal reveal-left">
-        <div class="about-card">
-          <img src="./assets/images/browse.gif" alt="Recipe ideas" />
-          <div class="about-card-body">
-            <p class="about-card-label">Recipes</p>
-            <h3>Finding New Meals</h3>
-            <p>Explore recipe ideas when you do not know what to cook next.</p>
-          </div>
+      <!-- Card 3 -->
+      <div class="about-blog-card scroll-reveal reveal-left">
+        <img src="./assets/images/browse.gif" alt="Finding new recipes" />
+        <div class="about-blog-card-body">
+          <span class="about-blog-card-label">Recipes</span>
+          <h3>How I Find a New Recipe When I Have No Idea What to Cook</h3>
+          <p>A practical method for breaking out of the same five dinners — using pantry constraints and the anchor ingredient approach.</p>
+          <button class="btn-blog-read" onclick="openBlogModal('newmeals')">Read Article →</button>
         </div>
       </div>
 
-      <div class="col-md-6 scroll-reveal reveal-right">
-        <div class="about-card">
-          <img src="./assets/images/meet.jpg" alt="Kitchen notes" />
-          <div class="about-card-body">
-            <p class="about-card-label">Kitchen Notes</p>
-            <h3>Behind the Recipes</h3>
-            <p>Read the stories behind Jenna’s favorite meals and kitchen experiments.</p>
-          </div>
+      <!-- Card 4 (reversed) -->
+      <div class="about-blog-card reverse scroll-reveal reveal-right">
+        <img src="./assets/images/meet.jpg" alt="Kitchen notes" />
+        <div class="about-blog-card-body">
+          <span class="about-blog-card-label">Kitchen Notes</span>
+          <h3>The Recipes That Didn't Come From the Internet</h3>
+          <p>Some recipes have history. My grandmother never measured anything. This is about what gets lost, what survives, and why I started this site.</p>
+          <button class="btn-blog-read" onclick="openBlogModal('behind')">Read Article →</button>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
     <!-- NEWSLETTER SECTION -->
-    <section class="full-section newsletter-section">
-      <div class="newsletter-overlay justify-content-center align-items-center">
-        <div class="container">
-          <div class="newsletter-box">
-            <p class="rotd-label">Stay in the Loop</p>
-            <h2 class="mb-2">From Jenna's Kitchen to Your Inbox</h2>
-            <p class="newsletter-sub">
-              New recipes, seasonal guides and kitchen tips delivered weekly.
-            </p>
-
-            <form class="newsletter-form" action="#">
-              <div class="newsletter-fields">
-                <input type="text" placeholder="Your name" name="name" required />
-                <input type="email" placeholder="Your email address" name="mail" required />
-              </div>
-
-              <div class="newsletter-footer-row">
-                <label class="newsletter-check">
-                  <input type="checkbox" checked name="subscribe" />
-                  <span>Send me the weekly digest</span>
-                </label>
-
-                <button type="submit" class="btn btn-lg px-5 link newsletter-btn">
-                  Subscribe
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
+    <section class="about-newsletter">
+  <div class="container">
+    <div class="about-newsletter-box scroll-reveal reveal-up">
+      <span class="about-label" style="color:var(--color-accent);">Stay Connected</span>
+      <h2>Join Jenna's Kitchen Table</h2>
+      <p class="about-newsletter-note">"I send one email a week. No spam — just a recipe, a tip, and something I've been thinking about in the kitchen."</p>
+      <div class="about-pref-row">
+        <button class="about-pref-pill selected">All of it</button>
+        <button class="about-pref-pill">Quick Meals</button>
+        <button class="about-pref-pill">Weekend Cooking</button>
+        <button class="about-pref-pill">Seasonal Guides</button>
       </div>
-    </section>
+      <div class="about-newsletter-email">
+        <input type="email" placeholder="Your email address" />
+        <button type="button">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Modal -->
+<div id="aboutModalBackdrop" class="about-modal-backdrop"></div>
+<div id="aboutArticleModal" class="about-article-modal">
+  <button id="aboutModalClose" class="about-modal-close">&times;</button>
+  <img id="aboutModalImg" class="about-modal-hero" src="" alt="" />
+  <div class="about-modal-body">
+    <span id="aboutModalLabel" class="about-blog-card-label"></span>
+    <h2 id="aboutModalTitle"></h2>
+    <div id="aboutModalBody"></div>
+  </div>
+</div>
 
     <!-- FOOTER -->
     <footer class="site-footer py-5">
@@ -372,31 +287,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="./assets/main.js"></script>
+  <script src="about.js"></script>
 
-  <script>
-    const nav = document.querySelector(".custom-navbar");
-
-    window.addEventListener("scroll", function () {
-      if (window.scrollY > 80) {
-        nav.classList.add("scrolled");
-      } else {
-        nav.classList.remove("scrolled");
-      }
-    });
-
-    const revealEls = document.querySelectorAll(".scroll-reveal");
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    revealEls.forEach(el => revealObserver.observe(el));
-  </script>
 </body>
 </html>
