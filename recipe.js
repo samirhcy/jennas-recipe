@@ -624,75 +624,92 @@ function renderRecipes(recipes, append = false) {
     loadMoreBtn.classList.add("d-none");
   }
 }
-function openRecipeModal(index) {
+async function openRecipeModal(index) {
   const recipe = currentRecipes[index];
 
+  // Show title + match score immediately from lightweight data
   modalRecipeTitle.textContent = recipe.title;
-  modalMatchScore.textContent = `Ready In: ${recipe.readyInMinutes || "--"} mins`;
+  modalMatchScore.textContent = recipe.usedIngredientCount != null
+    ? `✓ ${recipe.usedIngredientCount} matched · ${recipe.missedIngredientCount ?? 0} missing`
+    : "";
 
-  const ingredientsHtml = recipe.extendedIngredients
-    ? recipe.extendedIngredients.map(item => `<li>${item.original}</li>`).join("")
-    : "<li>No ingredients found.</li>";
+  // Loading state while we fetch full data
+  modalRecipeBody.innerHTML = `<p class="muted-text" style="padding:2rem;text-align:center;">Loading recipe details...</p>`;
 
-  const hasInstructions = recipe.analyzedInstructions && recipe.analyzedInstructions.length > 0;
-  const allSteps = hasInstructions ? recipe.analyzedInstructions[0].steps : [];
-  const previewSteps = allSteps.slice(0, 3);
+  try {
+    const res = await fetch(
+      `https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${SPOONACULAR_KEY}&includeNutrition=false`
+    );
+    const full = await res.json();
 
-  const instructionsHtml = previewSteps.length > 0
-    ? previewSteps.map((step, i) => `<li>${step.step}</li>`).join("")
-    : null;
+    // Merge full data back so addToFavorites/addToShoppingList have everything
+    currentRecipes[index] = { ...recipe, ...full };
 
-  const missingIngredients = recipe.missedIngredients
-    ? recipe.missedIngredients.map(item => item.name).join(", ")
-    : "None";
+    const ingredientsHtml = full.extendedIngredients
+      ? full.extendedIngredients.map(item => `<li>${item.original}</li>`).join("")
+      : "<li>No ingredients found.</li>";
 
-  modalRecipeBody.innerHTML = `
-    <img class="modal-hero-img" src="${recipe.image}" alt="${recipe.title}" />
+    const allSteps = full.analyzedInstructions?.[0]?.steps || [];
+    const previewSteps = allSteps.slice(0, 3);
+    const instructionsHtml = previewSteps.length > 0
+      ? previewSteps.map(step => `<li>${step.step}</li>`).join("")
+      : null;
 
-    <div class="recipe-detail-grid mt-4">
-      <div>
-        <p><strong>Cook Time:</strong> ${recipe.readyInMinutes || "--"} mins</p>
-        <p><strong>Servings:</strong> ${recipe.servings || "--"}</p>
+    // Preserve missedIngredients from the original lightweight object (findByIngredients)
+    const missingIngredients = recipe.missedIngredients
+      ? recipe.missedIngredients.map(i => i.name).join(", ")
+      : "None";
+
+    modalRecipeBody.innerHTML = `
+      <img class="modal-hero-img" src="${full.image}" alt="${full.title}" />
+
+      <div class="recipe-detail-grid mt-4">
+        <div>
+          <p><strong>Cook Time:</strong> ${full.readyInMinutes || "--"} mins</p>
+          <p><strong>Servings:</strong> ${full.servings || "--"}</p>
+        </div>
+        <div>
+          <p><strong>Used Ingredients:</strong> ${recipe.usedIngredientCount ?? "--"}</p>
+          <p><strong>Missing Ingredients:</strong> ${missingIngredients}</p>
+        </div>
       </div>
 
-      <div>
-        <p><strong>Used Ingredients:</strong> ${recipe.usedIngredientCount ?? 0}</p>
-        <p><strong>Missing Ingredients:</strong> ${missingIngredients}</p>
+      <div class="mt-4">
+        <h4>Ingredients</h4>
+        <ul>${ingredientsHtml}</ul>
       </div>
-    </div>
 
-    <div class="mt-4">
-      <h4>Ingredients</h4>
-      <ul>${ingredientsHtml}</ul>
-    </div>
+      <div class="mt-4">
+        <h4>Instructions</h4>
+        ${instructionsHtml
+          ? `<ol>${instructionsHtml}</ol>
+             ${allSteps.length > 3
+               ? `<p class="small-note mt-2" style="font-style:italic;">
+                    Showing 3 of ${allSteps.length} steps —
+                    <a href="cook.html?id=${full.id}" style="color:var(--color-accent);font-weight:600;">
+                      Open Cook Mode for the full guide →
+                    </a>
+                  </p>`
+               : ""}`
+          : `<p class="small-note">No instructions available.
+               <a href="cook.html?id=${full.id}" style="color:var(--color-accent);font-weight:600;">
+                 Try Cook Mode →
+               </a>
+             </p>`
+        }
+      </div>
 
-    <div class="mt-4">
-      <h4>Instructions</h4>
-      ${instructionsHtml
-        ? `<ol>${instructionsHtml}</ol>
-           ${allSteps.length > 3
-             ? `<p class="small-note mt-2" style="font-style:italic;">
-                  Showing 3 of ${allSteps.length} steps —
-                  <a href="cook.html?id=${recipe.id}" style="color:var(--color-accent);font-weight:600;">
-                    Open Cook Mode for the full guide →
-                  </a>
-                </p>`
-             : ""
-           }`
-        : `<p class="small-note">No instructions available for this recipe.
-             <a href="cook.html?id=${recipe.id}" style="color:var(--color-accent);font-weight:600;">
-               Try Cook Mode →
-             </a>
-           </p>`
-      }
-    </div>
+      <div class="modal-action-bar mt-4 d-flex gap-2 flex-wrap">
+        <button class="btn btn-main btn-sm" onclick="addToFavorites(${full.id})">♥ Save</button>
+        <button class="btn btn-main btn-sm" onclick="addToShoppingList(${full.id})">🛒 Shopping List</button>
+        <a class="btn btn-main btn-sm" href="cook.html?id=${full.id}">🍳 Cook Mode</a>
+      </div>
+    `;
 
-    <div class="modal-action-bar mt-4 d-flex gap-2 flex-wrap">
-      <button class="btn btn-main btn-sm" onclick="addToFavorites(${recipe.id})">♥ Save</button>
-      <button class="btn btn-main btn-sm" onclick="addToShoppingList(${recipe.id})">🛒 Shopping List</button>
-      <a class="btn btn-main btn-sm" href="cook.html?id=${recipe.id}">🍳 Cook Mode</a>
-    </div>
-  `;
+  } catch (err) {
+    console.error("Modal fetch error:", err);
+    modalRecipeBody.innerHTML = `<p class="muted-text" style="padding:2rem;text-align:center;">Could not load recipe details. Please try again.</p>`;
+  }
 }
 
 function addToFavorites(id) {

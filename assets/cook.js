@@ -15,7 +15,7 @@ function showGallery() {
   dashboardSection.style.display = "none";
   gallerySection.style.display   = "block";
 
-  const favorites = JSON.parse(localStorage.getItem("jenna_favorites") || "[]");
+  const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
 
   if (favorites.length === 0) {
     galleryGrid.innerHTML = "";
@@ -41,7 +41,7 @@ function showGallery() {
 
 // State 2: Show dashboard for selected recipe
 function startCook(index) {
-  const favorites = JSON.parse(localStorage.getItem("jenna_favorites") || "[]");
+  const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
   currentRecipe = favorites[index];
 
   gallerySection.style.display   = "none";
