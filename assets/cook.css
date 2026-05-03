@@ -1,9 +1,23 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 
 * , *:before, *:after {
   box-sizing: border-box;
 }
 
 /*  Gallery: State 1 */
+#cm-gallery {
+  flex: 1;
+  min-height: calc(100vh - 80px); /* 80px = approx navbar height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .cm-label {
   color: var(--color-accent);
   text-transform: uppercase;
@@ -49,7 +63,8 @@
 /* Dashboard: State 2 */
 #cm-dashboard {
   background-color: var(--color-bg);
-  min-height: 100vh;
+  flex: 1;
+  min-height: calc(100vh - 80px);
 }
 
 .cm-dash-header {
@@ -64,6 +79,7 @@
   border-radius: 22px;
   box-shadow: 0 12px 32px rgba(66, 33, 18, 0.08);
   height: 100%;
+  min-height: 520px;
 }
 
 .cm-widget h3 {

@@ -17,12 +17,19 @@ body {
   font-family: "DM Sans", sans-serif;
   color: var(--color-text);
   background-color: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .recipe-wrapper {
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+main#wrapper {
+  flex: 1;
 }
 
 #scroll-progress {
