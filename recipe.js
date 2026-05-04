@@ -1,4 +1,4 @@
-const SPOONACULAR_KEY = "9b11bc4e20ba49f484a7d2740b8650c7";
+const SPOONACULAR_KEY = "a4d349c7bac74d31ac755d4b5824287c";
 // Scroll progress + navbar pill effect
 const wrapper = document.getElementById("wrapper");
 const progressBar = document.getElementById("scroll-progress");

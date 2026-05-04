@@ -1,4 +1,4 @@
-const ABOUT_API_KEY = "9b11bc4e20ba49f484a7d2740b8650c7";
+const ABOUT_API_KEY = "a4d349c7bac74d31ac755d4b5824287c";
 
 //  Navbar scroll pill
 const nav = document.querySelector(".custom-navbar");
