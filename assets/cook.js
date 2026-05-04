@@ -1,4 +1,4 @@
-const COOK_API_KEY = "a4d349c7bac74d31ac755d4b5824287c";
+const COOK_API_KEY = "72397b8a0fe74407af4b93bb321131cf";
 
 //State
 let currentRecipe = null;
